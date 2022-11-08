@@ -104,4 +104,4 @@ package.json/scripts
 
 ### 组件注册渲染
 
-ha-vue-ui.js
+hs-ui.js

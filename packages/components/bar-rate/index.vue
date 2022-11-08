@@ -1,18 +1,24 @@
 <template>
-  <div w-full>
-    <div class="top-text" mt15>
-      <span>{{ config[0].text || '新能源' }}</span>
-      <span>{{ config[1].text || '燃油车' }}</span>
+  <div w-full border-box>
+    <div class="top-text">
+      <span>{{ config[0].text || "新能源" }}</span>
+      <span>{{ config[1].text || "燃油车" }}</span>
     </div>
-    <div class="bar-box" mt13>
-      <div class="left-rate" :style="{ width: `${parseFloat(rate1) * 0.98}%` }"></div>
+    <div class="bar-box">
+      <div
+        class="left-rate"
+        :style="{ width: `${parseFloat(rate1) * 0.98}%` }"
+      ></div>
       <div class="space"></div>
       <div
         class="right-rate"
-        :style="{ left: `${parseFloat(rate1) * 0.98 + 2}%`, width: `${parseFloat(rate2) * 0.98}%` }"
+        :style="{
+          left: `${parseFloat(rate1) * 0.98 + 2}%`,
+          width: `${parseFloat(rate2) * 0.98}%`,
+        }"
       ></div>
     </div>
-    <div class="bottom-box" mt12>
+    <div class="bottom-box">
       <div class="bottom-left">占比{{ parseFloat(rate1) }}%</div>
       <div class="bottom-right">占比{{ parseFloat(rate2) }}%</div>
     </div>
@@ -20,27 +26,28 @@
 </template>
 <script>
 export default {
-  name: 'ha-bar-rate',
+  name: "hs-bar-rate",
   props: {
     config: {
       type: Array,
       default: () => [
-        { text: '新能源', key: 'rate1' },
-        { text: '燃油车', key: 'rate2' }
-      ]
+        { text: "新能源", key: "rate1" },
+        { text: "燃油车", key: "rate2" },
+      ],
     },
     rate1: {
       type: [String, Number],
-      default: '45.52'
+      default: "45.52",
     },
     rate2: {
       type: [String, Number],
-      default: '54.48'
-    }
-  }
-}
+      default: "54.48",
+    },
+  },
+};
 </script>
 <style lang="scss" scoped>
+@import "../../style/index.scss";
 $padding: 7px;
 .top-text {
   width: 100%;
@@ -50,6 +57,7 @@ $padding: 7px;
   display: flex;
   justify-content: space-between;
   padding: 0 $padding;
+  margin-top: 15px;
 }
 .bar-box {
   position: relative;
@@ -57,10 +65,11 @@ $padding: 7px;
   height: 11px;
   padding: 0 $padding;
   display: flex;
+  margin-top: 13px;
   &::before,
   &::after {
     position: absolute;
-    content: '';
+    content: "";
     width: 5px;
     height: 17px;
     top: -4px;
@@ -93,7 +102,7 @@ $padding: 7px;
   align-items: center;
   &::after {
     position: absolute;
-    content: '';
+    content: "";
     width: 2px;
     height: 17px;
     background: #d8fbff;
@@ -103,6 +112,7 @@ $padding: 7px;
   display: flex;
   justify-content: space-between;
   padding: 0 $padding;
+  margin-top: 12px;
   .bottom-left {
     color: #43ebff;
     font-size: 16px;
@@ -110,7 +120,7 @@ $padding: 7px;
     position: relative;
     &::before {
       position: absolute;
-      content: '';
+      content: "";
       left: 0;
       bottom: -8px;
       width: 32px;
@@ -125,7 +135,7 @@ $padding: 7px;
     position: relative;
     &::after {
       position: absolute;
-      content: '';
+      content: "";
       right: 0;
       bottom: -8px;
       width: 32px;

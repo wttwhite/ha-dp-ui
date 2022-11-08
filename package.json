@@ -1,13 +1,17 @@
 {
-  "name": "ha-vue-ui",
+  "name": "hs-ui",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "/lib/hs-ui.common.js",
+  "files": [
+    "lib"
+  ],
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "dev": "webpack-dev-server --config ./webpack/webpack.dev.js",
-    "build": "webpack --config ./webpack/webpack.pro.js",
-    "build:com": "webpack --config ./webpack/webpack.pro.components.js"
+    "build:all": "webpack --config ./webpack/webpack.pro.js",
+    "build:com": "webpack --config ./webpack/webpack.pro.components.js",
+    "build": "npm run build:all && npm run build:com"
   },
   "author": "",
   "license": "ISC",

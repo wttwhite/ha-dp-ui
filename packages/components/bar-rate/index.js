@@ -1,7 +1,7 @@
-import BarRate from './index.vue';
+import BarRate from "./index.vue";
 
 BarRate.install = function (Vue) {
-  Vue.component (BarRate.name, BarRate);
+  Vue.component(BarRate.name, BarRate);
 };
 
 export default BarRate;

@@ -7,19 +7,19 @@
 
 <script>
 export default {
-  name: 'ha-name-value',
+  name: "hs-name-value",
   props: {
     item: {
       type: Object,
       default: () => {
         return {
-          name: '老旧住宅',
-          value: 0
-        }
-      }
-    }
-  }
-}
+          name: "老旧住宅",
+          value: 0,
+        };
+      },
+    },
+  },
+};
 </script>
 
 <style scoped lang="scss">
