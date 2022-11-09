@@ -4,7 +4,7 @@
       <hs-bar-rate />
     </div>
     <div class="box">
-      <hs-name-value />
+      <!-- <hs-name-value /> -->
     </div>
   </div>
 </template>

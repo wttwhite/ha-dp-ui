@@ -3,6 +3,8 @@ const BaseConfig = require("./webpack.pro.base");
 const { merge } = require("webpack-merge");
 const fs = require("fs");
 const miniCssExtractPlugin = require("mini-css-extract-plugin");
+const cssMinimizerWebpackPlugin = require("css-minimizer-webpack-plugin");
+const VueLoaderPlugin = require("vue-loader/lib/plugin");
 const files = fs.readdirSync(
   path.resolve(__dirname, "../packages/components/")
 );
@@ -18,16 +20,21 @@ for (const item of files) {
   );
 }
 
-module.exports = merge(BaseConfig, {
+module.exports = {
+  mode: "production",
+  externals: {
+    vue: "vue",
+    echarts: "echarts",
+  },
   entry,
   output: {
-    filename: "[name]/index.js",
-    libraryExport: "default",
     path: path.resolve(__dirname, "../", "lib"),
-    library: "[name]",
-    libraryTarget: "umd",
-    umdNamedDefine: true,
-    publicPath: "/",
+    filename: "[name]/index.js",
+    // publicPath: "/",
+    // libraryExport: "default",
+    // umdNamedDefine: true,
+    libraryTarget: "umd", // 打成umd的方式
+    libraryExport: "default",
   },
   module: {
     rules: [
@@ -56,9 +63,13 @@ module.exports = merge(BaseConfig, {
       },
     ],
   },
+  // optimization: {
+  //   minimizer: [new cssMinimizerWebpackPlugin()],
+  // },
   plugins: [
+    new VueLoaderPlugin(),
     new miniCssExtractPlugin({
       filename: "[name]/style.css",
     }),
   ],
-});
+};

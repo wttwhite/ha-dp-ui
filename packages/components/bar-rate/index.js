@@ -1,6 +1,7 @@
 import BarRate from "./index.vue";
 
-BarRate.install = function (Vue) {
+BarRate.install = (Vue) => {
+  console.log("BarRate", BarRate);
   Vue.component(BarRate.name, BarRate);
 };
 

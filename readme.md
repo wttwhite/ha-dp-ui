@@ -105,3 +105,6 @@ package.json/scripts
 ### 组件注册渲染
 
 hs-ui.js
+
+
+core-js: 是关于 ES 标准最出名的polyfill,

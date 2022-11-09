@@ -28,8 +28,11 @@ const install = (Vue) => {
   });
 };
 import BarRate from "./components/bar-rate/index";
+import NameValue from "./components/name-value/index";
 console.log("componentList", componentList);
 
 export default {
   install,
+  BarRate,
+  NameValue,
 };
