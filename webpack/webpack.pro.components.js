@@ -2,6 +2,7 @@ const path = require("path");
 const BaseConfig = require("./webpack.pro.base");
 const { merge } = require("webpack-merge");
 const fs = require("fs");
+const miniCssExtractPlugin = require("mini-css-extract-plugin");
 const files = fs.readdirSync(
   path.resolve(__dirname, "../packages/components/")
 );
@@ -20,9 +21,44 @@ for (const item of files) {
 module.exports = merge(BaseConfig, {
   entry,
   output: {
-    filename: "[name].js",
+    filename: "[name]/index.js",
     libraryExport: "default",
-    path: path.resolve(__dirname, "../", "lib/"),
-    libraryTarget: "commonjs2",
+    path: path.resolve(__dirname, "../", "lib"),
+    library: "[name]",
+    libraryTarget: "umd",
+    umdNamedDefine: true,
+    publicPath: "/",
   },
+  module: {
+    rules: [
+      {
+        test: /\.(scss|sass|css)$/,
+        use: [
+          {
+            loader: miniCssExtractPlugin.loader,
+          },
+          "css-loader",
+          "sass-loader",
+        ],
+      },
+      {
+        test: /\.(jsx?|babel|es6)$/,
+        exclude: /node_modules/,
+        use: [
+          {
+            loader: "babel-loader",
+          },
+        ],
+      },
+      {
+        test: /\.vue$/,
+        use: ["vue-loader"],
+      },
+    ],
+  },
+  plugins: [
+    new miniCssExtractPlugin({
+      filename: "[name]/style.css",
+    }),
+  ],
 });
