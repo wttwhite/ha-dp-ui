@@ -1,10 +1,11 @@
 {
-  "name": "hs-ui",
-  "version": "1.0.0",
+  "name": "hs-pro",
+  "version": "1.0.1",
   "description": "",
-  "main": "/lib/hs-ui.common.js",
+  "main": "/lib/hs-pro.common.js",
   "files": [
-    "lib"
+    "lib",
+    "packages"
   ],
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
@@ -19,7 +20,7 @@
     "vue": "^2.6.14",
     "vue-loader": "^15.10.0",
     "vue-template-compiler": "2.6",
-    "webpack": "^5.74.0"
+    "webpack": "^5.75.0"
   },
   "peerDependencies": {
     "vue": "^2.6.14"
@@ -33,6 +34,7 @@
     "sass": "^1.56.0",
     "sass-loader": "^13.1.0",
     "style-loader": "^3.3.1",
+    "terser-webpack-plugin": "^5.3.6",
     "webpack-cli": "^4.10.0",
     "webpack-dev-server": "^4.11.1",
     "webpack-merge": "^5.8.0"
