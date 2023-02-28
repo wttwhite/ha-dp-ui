@@ -35,6 +35,7 @@ export default {
   },
   methods: {
     sizeChangeHandle(val) {
+      this.$emit("update:pageNo", 1);
       this.$emit("update:pageSize", val);
       // 防止父组件的pageSize和pageNo没更新
       this.$nextTick(() => {
