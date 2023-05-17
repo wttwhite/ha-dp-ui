@@ -27,10 +27,13 @@ export default {
       type: Number,
       default: 10,
     },
+    pageSizes: {
+      type: Array,
+      default: () => [10, 20, 50, 100],
+    },
   },
   data() {
     return {
-      pageSizes: [10, 20, 50, 100],
     };
   },
   methods: {

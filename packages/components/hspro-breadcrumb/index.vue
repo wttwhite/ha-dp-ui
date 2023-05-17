@@ -1,7 +1,7 @@
 <template>
   <div class="breadcrumb">
     <el-breadcrumb separator="/">
-      <el-breadcrumb-item v-if="path">
+      <el-breadcrumb-item v-if="path || goBack">
         <i class="el-icon-back" style="cursor: pointer" @click="goback()"></i>
       </el-breadcrumb-item>
       <el-breadcrumb-item v-for="item in list" :key="item">
@@ -25,9 +25,17 @@ export default {
       type: String,
       default: "",
     },
+    goBack: {
+      type: [Function, String],
+      default: "",
+    },
   },
   methods: {
     goback() {
+      if (this.goBack) {
+        this.goBack();
+        return;
+      }
       if (this.path) {
         this.$router.replace(this.path);
       }
