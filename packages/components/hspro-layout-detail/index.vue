@@ -1,5 +1,5 @@
 <template functional>
-  <div class="detail-box">
+  <div class="detail-box" v-loading="loading">
     <slot name="page-breadcrumb"></slot>
 
     <div class="detail-box-card">
@@ -14,14 +14,18 @@
 
 <script>
 export default {
-  name: "hspro-layout-detail",
+  name: 'hspro-layout-detail',
   props: {
     footerBtn: {
       type: Boolean,
-      default: false,
+      default: false
     },
-  },
-};
+    loading: {
+      type: Boolean,
+      default: false
+    }
+  }
+}
 </script>
 
 <style lang="scss" scoped>
@@ -31,7 +35,7 @@ export default {
   min-width: 840px;
   display: flex;
   flex-direction: column;
-  &-card {
+  .detail-box-card {
     flex: 1;
     border-radius: 8px;
     padding: 15px;
@@ -42,6 +46,7 @@ export default {
     display: flex;
     justify-content: center;
     align-items: center;
+    flex-shrink: 0;
   }
   ::v-deep .el-form {
     .el-form-item {

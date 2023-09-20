@@ -1,3 +1,7 @@
+## 2.1.0（2023/9/20）
+
+- hspro-layout 和 hspro-layout-detail增加loading入参
+
 ## 2.1.0(2023/5/17)
 
 - feat: 面包屑增加goBack方法，以提供返回传参

@@ -48,6 +48,7 @@ export default {
 .breadcrumb {
   width: 100%;
   height: 32px;
+  flex-shrink: 0;
   box-sizing: border-box;
   display: flex;
   justify-content: flex-start;
